@@ -11,6 +11,11 @@ function App() {
     { id: 3, title: "กดเงินธนาคาร" },
   ]);
 
+  function deleteTask(id) {
+    const result = task.filter((item) => item.id !== id);
+    setTask(result);
+  }
+
   return (
     <div className="App">
       <Header />
@@ -18,7 +23,7 @@ function App() {
         <AddForm />
         <section>
           {task.map((data) => (
-            <Item key={data.id} data={data} />
+            <Item key={data.id} data={data} deleteTask={deleteTask} />
           ))}
         </section>
       </div>
