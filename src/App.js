@@ -16,7 +16,11 @@ function App() {
       <Header />
       <div className="container">
         <AddForm />
-        <Item />
+        <section>
+          {task.map((data) => (
+            <Item key={data.id} data={data} />
+          ))}
+        </section>
       </div>
     </div>
   );
