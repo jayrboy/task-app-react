@@ -24,6 +24,18 @@ function App() {
     e.preventDefault();
     if (!title) {
       alert("กรุณาป้อนข้อมูล");
+    } else if (editId) {
+      // อัพเดทข้อมูล
+      const updateTask = tasks.map((item) => {
+        // รายการใดมีรหัสตรงกับรหัสแก้ไข
+        if (item.id === editId) {
+          return { ...item, title: title };
+        }
+        return item;
+      });
+      setTask(updateTask);
+      setEditId(null);
+      setTitle("");
     } else {
       // เพิ่มรายการใหม่
       const newTask = {
@@ -31,6 +43,7 @@ function App() {
         title: title,
       };
       setTask([...tasks, newTask]);
+      setTitle("");
     }
   }
 
