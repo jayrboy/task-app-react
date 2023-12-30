@@ -1,11 +1,11 @@
 import "./AddForm.css";
 
 export default function AddForm(props) {
-  const { title, setTitle } = props;
+  const { title, setTitle, saveTask } = props;
   return (
     <>
       <h2>แอปบริหารจัดการงาน</h2>
-      <form>
+      <form onSubmit={saveTask}>
         <div className="form-control">
           <input
             type="text"

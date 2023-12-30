@@ -5,7 +5,7 @@ import Item from "./components/Item";
 import { useState } from "react";
 
 function App() {
-  const [task, setTask] = useState([
+  const [tasks, setTask] = useState([
     { id: 1, title: "แก้บั๊คโปรแกรม" },
     { id: 2, title: "คู่มือการใช้งาน" },
     { id: 3, title: "กดเงินธนาคาร" },
@@ -14,17 +14,31 @@ function App() {
   const [title, setTitle] = useState("");
 
   function deleteTask(id) {
-    const result = task.filter((item) => item.id !== id);
+    const result = tasks.filter((item) => item.id !== id);
     setTask(result);
+  }
+
+  function saveTask(e) {
+    e.preventDefault();
+    if (!title) {
+      alert("กรุณาป้อนข้อมูล");
+    } else {
+      // เพิ่มรายการใหม่
+      const newTask = {
+        id: Math.floor(Math.random() * 1000),
+        title: title,
+      };
+      setTask([...tasks, newTask]);
+    }
   }
 
   return (
     <div className="App">
       <Header />
       <div className="container">
-        <AddForm title={title} setTitle={setTitle} />
+        <AddForm title={title} setTitle={setTitle} saveTask={saveTask} />
         <section>
-          {task.map((data) => (
+          {tasks.map((data) => (
             <Item key={data.id} data={data} deleteTask={deleteTask} />
           ))}
         </section>
