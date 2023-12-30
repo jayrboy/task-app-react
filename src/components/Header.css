@@ -24,3 +24,6 @@ header {
   cursor: pointer;
   margin-left: 10px;
 }
+.theme-container .icon {
+  font-size: 15px;
+}
