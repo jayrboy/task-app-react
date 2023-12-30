@@ -2,18 +2,17 @@ import "./App.css";
 import Header from "./components/Header";
 import AddForm from "./components/AddForm";
 import Item from "./components/Item";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [tasks, setTask] = useState([
-    { id: 1, title: "แก้บั๊คโปรแกรม" },
-    { id: 2, title: "คู่มือการใช้งาน" },
-    { id: 3, title: "กดเงินธนาคาร" },
-  ]);
-
+  const [tasks, setTask] = useState([]);
   const [title, setTitle] = useState("");
-
   const [editId, setEditId] = useState(null);
+
+  // รูปแบบ 3
+  useEffect(() => {
+    console.log("เรียกใช้งาน useEffect ใน App Component");
+  }, [tasks]);
 
   function deleteTask(id) {
     const result = tasks.filter((item) => item.id !== id);
