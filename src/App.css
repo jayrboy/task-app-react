@@ -9,3 +9,14 @@
   border-radius: 0.25rem;
   max-width: 65vh;
 }
+
+.light {
+  background: white;
+  color: #000;
+  transition: all 500ms;
+}
+.dark {
+  background: #15202b;
+  color: #fff;
+  transition: all 500ms;
+}
