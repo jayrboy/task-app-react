@@ -5,13 +5,15 @@ import Item from "./components/Item";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [tasks, setTask] = useState([]);
+  const [tasks, setTask] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
   const [title, setTitle] = useState("");
   const [editId, setEditId] = useState(null);
 
-  // รูปแบบ 3
+  // useEffect รูปแบบ 3
   useEffect(() => {
-    console.log("เรียกใช้งาน useEffect ใน App Component");
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   function deleteTask(id) {
