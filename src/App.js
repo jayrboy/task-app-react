@@ -10,6 +10,7 @@ function App() {
   );
   const [title, setTitle] = useState("");
   const [editId, setEditId] = useState(null);
+  const [theme, setTheme] = useState("light");
 
   // useEffect รูปแบบ 3
   useEffect(() => {
@@ -56,7 +57,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header theme={theme} setTheme={setTheme} />
       <div className="container">
         <AddForm
           title={title}
