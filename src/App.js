@@ -13,6 +13,8 @@ function App() {
 
   const [title, setTitle] = useState("");
 
+  const [editId, setEditId] = useState(null);
+
   function deleteTask(id) {
     const result = tasks.filter((item) => item.id !== id);
     setTask(result);
@@ -32,14 +34,30 @@ function App() {
     }
   }
 
+  function editTask(id) {
+    setEditId(id);
+    const editTask = tasks.find((item) => item.id === id);
+    setTitle(editTask.title);
+  }
+
   return (
     <div className="App">
       <Header />
       <div className="container">
-        <AddForm title={title} setTitle={setTitle} saveTask={saveTask} />
+        <AddForm
+          title={title}
+          setTitle={setTitle}
+          saveTask={saveTask}
+          editId={editId}
+        />
         <section>
           {tasks.map((data) => (
-            <Item key={data.id} data={data} deleteTask={deleteTask} />
+            <Item
+              key={data.id}
+              data={data}
+              deleteTask={deleteTask}
+              editTask={editTask}
+            />
           ))}
         </section>
       </div>
