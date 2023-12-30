@@ -11,6 +11,8 @@ function App() {
     { id: 3, title: "กดเงินธนาคาร" },
   ]);
 
+  const [title, setTitle] = useState("");
+
   function deleteTask(id) {
     const result = task.filter((item) => item.id !== id);
     setTask(result);
@@ -20,7 +22,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="container">
-        <AddForm />
+        <AddForm title={title} setTitle={setTitle} />
         <section>
           {task.map((data) => (
             <Item key={data.id} data={data} deleteTask={deleteTask} />
