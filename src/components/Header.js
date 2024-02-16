@@ -1,14 +1,14 @@
-import "./Header.css";
-import { BsSunFill, BsMoonStarsFill } from "react-icons/bs";
+import './Header.css'
+import { BsSunFill, BsMoonStarsFill } from 'react-icons/bs'
 
 export default function Header(props) {
-  const { theme, setTheme } = props;
+  const { theme, setTheme } = props
 
   function toggleTheme() {
-    if (theme === "light") {
-      setTheme("dark");
+    if (theme === 'light') {
+      setTheme('dark')
     } else {
-      setTheme("light");
+      setTheme('light')
     }
   }
 
@@ -18,11 +18,11 @@ export default function Header(props) {
         <span>Task Management</span>
       </div>
       <div className="theme-container">
-        <span>{theme === "light" ? "โหมดกลางวัน" : "โหมดกลางคืน"}</span>
+        <span>{theme === 'light' ? 'โหมดกลางวัน' : 'โหมดกลางคืน'}</span>
         <span className="icon" onClick={toggleTheme}>
-          {theme === "light" ? <BsSunFill /> : <BsMoonStarsFill />}
+          {theme === 'light' ? <BsSunFill /> : <BsMoonStarsFill />}
         </span>
       </div>
     </header>
-  );
+  )
 }
